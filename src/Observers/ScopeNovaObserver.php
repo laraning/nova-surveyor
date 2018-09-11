@@ -8,7 +8,7 @@ class ScopeNovaObserver
 {
     public function saving(Scope $model)
     {
-        info('Policy observer triggering saving inside Nova.');
+        //
     }
 
     public function created(Scope $model)
