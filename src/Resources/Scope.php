@@ -52,12 +52,12 @@ class Scope extends Resource
         $fields = [
             ID::make()->sortable()->onlyOnForms(),
 
-            Text::make('Name'),
-            Text::make('Code'),
-            Select::make('Profile')->options(Profile::all()->pluck('name', 'id'))->displayUsingLabels(),
-            Text::make('Scope Class')->help('Fully qualified Class name'),
+            Text::make('Name', 'name'),
+            Text::make('Code', 'code'),
+            Text::make('Model', 'model'),
+            Text::make('Scope Class', 'scope')->help('Fully qualified Class name'),
 
-            BelongsToMany::make('Profiles', 'profiles', \App\Nova\Surveyor\Profile::class)
+            BelongsToMany::make('Profiles', 'profiles', \Laraning\NovaSurveyor\Resources\Profile::class)
         ];
 
         return $fields;

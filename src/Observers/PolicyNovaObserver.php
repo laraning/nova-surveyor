@@ -8,6 +8,7 @@ class PolicyNovaObserver
 {
     public function saving(Policy $model)
     {
+        //
     }
 
     public function created(Policy $model)

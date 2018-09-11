@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laraning\Surveyor\Fields\PolicyFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laraning\NovaSurveyor\Fields\PolicyFields;
 
 class Policy extends Resource
 {
@@ -56,7 +56,7 @@ class Policy extends Resource
             Text::make('Model'),
             Text::make('Policy'),
 
-            BelongsToMany::make('Profiles', 'profiles', \App\Nova\Surveyor\Profile::class)
+            BelongsToMany::make('Profiles', 'profiles', \Laraning\NovaSurveyor\Resources\Profile::class)
                          ->fields(new PolicyFields)
 
         ];

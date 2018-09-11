@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laraning\Surveyor\Fields\PolicyFields;
+use Laraning\NovaSurveyor\Fields\PolicyFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Profile extends Resource
@@ -62,10 +62,10 @@ class Profile extends Resource
             BelongsToMany::make('Users', 'users', \App\Nova\User::class)
                          ->sortable(),
 
-            BelongsToMany::make('Scopes', 'scopes', \App\Nova\Surveyor\Scope::class)
+            BelongsToMany::make('Scopes', 'scopes', \Laraning\NovaSurveyor\Resources\Scope::class)
                          ->sortable(),
 
-            BelongsToMany::make('Policies', 'policies', \App\Nova\Surveyor\Policy::class)
+            BelongsToMany::make('Policies', 'policies', \Laraning\NovaSurveyor\Resources\Policy::class)
                          ->fields(new PolicyFields)
         ];
 
