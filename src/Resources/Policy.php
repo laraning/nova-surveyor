@@ -52,9 +52,9 @@ class Policy extends Resource
             ID::make()->sortable()->onlyOnForms(),
 
             Text::make('Name'),
-            Text::make('Code'),
-            Text::make('Model'),
-            Text::make('Policy'),
+            Text::make('Code')->onlyOnForms(),
+            Text::make('Model')->onlyOnForms(),
+            Text::make('Policy')->onlyOnForms(),
 
             BelongsToMany::make('Profiles', 'profiles', \Laraning\NovaSurveyor\Resources\Profile::class)
                          ->fields(new PolicyFields)

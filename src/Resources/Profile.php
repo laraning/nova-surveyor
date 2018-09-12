@@ -56,6 +56,7 @@ class Profile extends Resource
                 ->rules('required', 'string'),
 
             Text::make('Code', 'code')
+                ->onlyOnForms()
                 ->sortable()
                 ->rules('required', 'string'),
 
