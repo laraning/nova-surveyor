@@ -57,9 +57,15 @@ class Scope extends Resource
             ID::make()->sortable()->onlyOnForms(),
 
             Text::make('Name', 'name'),
-            Text::make('Code', 'code'),
+
+            Text::make('Description', 'description'),
+
+            Text::make('Code', 'code')
+                ->onlyOnForms(),
+
             Text::make('Model', 'model')
                 ->help('Fully qualified Class name')
+                ->onlyOnForms()
                 ->rules(
                     'bail',
                     'required',
@@ -70,6 +76,7 @@ class Scope extends Resource
 
             Text::make('Scope Class', 'scope')
                 ->help('Fully qualified Class name')
+                ->onlyOnForms()
                 ->rules(
                     'bail',
                     'required',
