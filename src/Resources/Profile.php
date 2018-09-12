@@ -7,9 +7,10 @@ use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Fields\BelongsToMany;
-use Laraning\NovaSurveyor\Fields\PolicyFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laraning\NovaSurveyor\Fields\PolicyFields;
 
 class Profile extends Resource
 {
@@ -52,6 +53,10 @@ class Profile extends Resource
             ID::make()->sortable()->onlyOnForms(),
 
             Text::make('Name', 'name')
+                ->sortable()
+                ->rules('required', 'string'),
+
+            Text::make('Description', 'description')
                 ->sortable()
                 ->rules('required', 'string'),
 
