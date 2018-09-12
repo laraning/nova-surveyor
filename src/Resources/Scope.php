@@ -9,8 +9,12 @@ use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Select;
 use Laraning\Surveyor\Models\Profile;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laraning\NovaSurveyor\Rules\IsModel;
 use Laraning\Surveyor\Fields\PolicyFields;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laraning\NovaSurveyor\Rules\ClassExists;
+use Laraning\NovaSurveyor\Rules\HasInterfaceScope;
+use Laraning\NovaSurveyor\Rules\HasTraitAppliesScopes;
 
 class Scope extends Resource
 {
@@ -54,8 +58,24 @@ class Scope extends Resource
 
             Text::make('Name', 'name'),
             Text::make('Code', 'code'),
-            Text::make('Model', 'model'),
-            Text::make('Scope Class', 'scope')->help('Fully qualified Class name'),
+            Text::make('Model', 'model')
+                ->help('Fully qualified Class name')
+                ->rules(
+                    'bail',
+                    'required',
+                    new ClassExists,
+                    new IsModel,
+                    new HasTraitAppliesScopes
+                ),
+
+            Text::make('Scope Class', 'scope')
+                ->help('Fully qualified Class name')
+                ->rules(
+                    'bail',
+                    'required',
+                    new ClassExists,
+                    new HasInterfaceScope
+                ),
 
             BelongsToMany::make('Profiles', 'profiles', \Laraning\NovaSurveyor\Resources\Profile::class)
         ];

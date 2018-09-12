@@ -8,8 +8,11 @@ use Illuminate\Http\Request;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Boolean;
 use Laravel\Nova\Fields\BelongsToMany;
+use Laraning\NovaSurveyor\Rules\IsModel;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use Laraning\NovaSurveyor\Rules\ClassExists;
 use Laraning\NovaSurveyor\Fields\PolicyFields;
+use Laraning\NovaSurveyor\Rules\HasTraitAppliesPolicies;
 
 class Policy extends Resource
 {
@@ -51,10 +54,32 @@ class Policy extends Resource
         $fields = [
             ID::make()->sortable()->onlyOnForms(),
 
-            Text::make('Name'),
-            Text::make('Code')->onlyOnForms(),
-            Text::make('Model')->onlyOnForms(),
-            Text::make('Policy')->onlyOnForms(),
+            Text::make('Name', 'name')
+                ->rules('required'),
+
+            Text::make('Description', 'description'),
+
+            Text::make('Code')
+                ->onlyOnForms()
+                ->rules('required', 'unique:code'),
+
+            Text::make('Model')
+                ->onlyOnForms()
+                ->rules(
+                    'bail',
+                    'required',
+                    new ClassExists,
+                    new IsModel
+                ),
+
+            Text::make('Policy')
+                ->onlyOnForms()
+                ->rules(
+                    'bail',
+                    'required',
+                    new ClassExists,
+                    new HasTraitAppliesPolicies
+                ),
 
             BelongsToMany::make('Profiles', 'profiles', \Laraning\NovaSurveyor\Resources\Profile::class)
                          ->fields(new PolicyFields)

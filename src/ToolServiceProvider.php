@@ -24,6 +24,7 @@ class ToolServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'nova-surveyor');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'nova-surveyor');
 
         $this->app->booted(function () {
             $this->routes();
