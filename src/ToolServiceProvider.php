@@ -2,17 +2,17 @@
 
 namespace Laraning\NovaSurveyor;
 
-use Laravel\Nova\Nova;
-use Laraning\Surveyor\Models\Scope;
-use Laraning\Surveyor\Models\Policy;
-use Laravel\Nova\Events\ServingNova;
 use Illuminate\Support\Facades\Route;
-use Laraning\Surveyor\Models\Profile;
 use Illuminate\Support\ServiceProvider;
 use Laraning\NovaSurveyor\Http\Middleware\Authorize;
-use Laraning\NovaSurveyor\Observers\ScopeNovaObserver;
-use Laraning\NovaSurveyor\Observers\ProfileNovaObserver;
 use Laraning\NovaSurveyor\Observers\PolicyNovaObserver;
+use Laraning\NovaSurveyor\Observers\ProfileNovaObserver;
+use Laraning\NovaSurveyor\Observers\ScopeNovaObserver;
+use Laraning\Surveyor\Models\Policy;
+use Laraning\Surveyor\Models\Profile;
+use Laraning\Surveyor\Models\Scope;
+use Laravel\Nova\Events\ServingNova;
+use Laravel\Nova\Nova;
 
 class ToolServiceProvider extends ServiceProvider
 {

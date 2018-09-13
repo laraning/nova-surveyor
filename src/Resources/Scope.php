@@ -3,18 +3,14 @@
 namespace Laraning\NovaSurveyor\Resources;
 
 use App\Nova\Resource;
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Select;
-use Laraning\Surveyor\Models\Profile;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laraning\NovaSurveyor\Rules\IsModel;
-use Laraning\Surveyor\Fields\PolicyFields;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laraning\NovaSurveyor\Rules\ClassExists;
 use Laraning\NovaSurveyor\Rules\HasInterfaceScope;
 use Laraning\NovaSurveyor\Rules\HasTraitAppliesScopes;
+use Laraning\NovaSurveyor\Rules\IsModel;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 
 class Scope extends Resource
 {
@@ -41,14 +37,16 @@ class Scope extends Resource
 
     /**
      * Show in the default resources sidebar?
-     * @var boolean
+     *
+     * @var bool
      */
     public static $displayInNavigation = false;
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function fields(Request $request)
@@ -69,9 +67,9 @@ class Scope extends Resource
                 ->rules(
                     'bail',
                     'required',
-                    new ClassExists,
-                    new IsModel,
-                    new HasTraitAppliesScopes
+                    new ClassExists(),
+                    new IsModel(),
+                    new HasTraitAppliesScopes()
                 ),
 
             Text::make('Scope Class', 'scope')
@@ -80,11 +78,11 @@ class Scope extends Resource
                 ->rules(
                     'bail',
                     'required',
-                    new ClassExists,
-                    new HasInterfaceScope
+                    new ClassExists(),
+                    new HasInterfaceScope()
                 ),
 
-            BelongsToMany::make('Profiles', 'profiles', \Laraning\NovaSurveyor\Resources\Profile::class)
+            BelongsToMany::make('Profiles', 'profiles', \Laraning\NovaSurveyor\Resources\Profile::class),
         ];
 
         return $fields;
@@ -93,7 +91,8 @@ class Scope extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function cards(Request $request)
@@ -104,7 +103,8 @@ class Scope extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function filters(Request $request)
@@ -115,7 +115,8 @@ class Scope extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function lenses(Request $request)
@@ -126,7 +127,8 @@ class Scope extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function actions(Request $request)
