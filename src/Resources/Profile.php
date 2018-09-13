@@ -64,7 +64,6 @@ class Profile extends Resource
                 ->sortable()
                 ->rules('required', 'string'),
 
-            // Doesnt exist yet.
             BelongsToMany::make('Users', 'users', \Laraning\NovaCheetah\Resources\User::class)
                          ->sortable(),
 
