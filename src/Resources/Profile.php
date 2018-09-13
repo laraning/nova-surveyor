@@ -65,6 +65,7 @@ class Profile extends Resource
                 ->sortable()
                 ->rules('required', 'string'),
 
+            // Doesnt exist yet.
             BelongsToMany::make('Users', 'users', \App\Nova\User::class)
                          ->sortable(),
 
