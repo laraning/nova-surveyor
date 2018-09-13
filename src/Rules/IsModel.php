@@ -16,7 +16,7 @@ class IsModel implements Rule
      */
     public function passes($attribute, $value)
     {
-        return is_a(new $value, 'Illuminate\Database\Eloquent\Model');
+        return is_a(new $value(), 'Illuminate\Database\Eloquent\Model');
     }
 
     /**

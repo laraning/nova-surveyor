@@ -3,14 +3,11 @@
 namespace Laraning\NovaSurveyor\Resources;
 
 use App\Nova\Resource;
-use Laravel\Nova\Fields\ID;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\Textarea;
-use Laravel\Nova\Fields\BelongsToMany;
-use Laravel\Nova\Http\Requests\NovaRequest;
 use Laraning\NovaSurveyor\Fields\PolicyFields;
+use Laravel\Nova\Fields\BelongsToMany;
+use Laravel\Nova\Fields\ID;
+use Laravel\Nova\Fields\Text;
 
 class Profile extends Resource
 {
@@ -37,14 +34,16 @@ class Profile extends Resource
 
     /**
      * Show in the default resources sidebar?
-     * @var boolean
+     *
+     * @var bool
      */
     public static $displayInNavigation = false;
 
     /**
      * Get the fields displayed by the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function fields(Request $request)
@@ -73,7 +72,7 @@ class Profile extends Resource
                          ->sortable(),
 
             BelongsToMany::make('Policies', 'policies', \Laraning\NovaSurveyor\Resources\Policy::class)
-                         ->fields(new PolicyFields)
+                         ->fields(new PolicyFields()),
         ];
 
         return $fields;
@@ -82,7 +81,8 @@ class Profile extends Resource
     /**
      * Get the cards available for the request.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function cards(Request $request)
@@ -93,7 +93,8 @@ class Profile extends Resource
     /**
      * Get the filters available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function filters(Request $request)
@@ -104,7 +105,8 @@ class Profile extends Resource
     /**
      * Get the lenses available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function lenses(Request $request)
@@ -115,7 +117,8 @@ class Profile extends Resource
     /**
      * Get the actions available for the resource.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
+     *
      * @return array
      */
     public function actions(Request $request)

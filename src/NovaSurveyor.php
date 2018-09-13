@@ -2,11 +2,11 @@
 
 namespace Laraning\NovaSurveyor;
 
-use Laravel\Nova\Nova;
-use Laravel\Nova\Tool;
-use Laraning\NovaSurveyor\Resources\Scope;
 use Laraning\NovaSurveyor\Resources\Policy;
 use Laraning\NovaSurveyor\Resources\Profile;
+use Laraning\NovaSurveyor\Resources\Scope;
+use Laravel\Nova\Nova;
+use Laravel\Nova\Tool;
 
 class NovaSurveyor extends Tool
 {
