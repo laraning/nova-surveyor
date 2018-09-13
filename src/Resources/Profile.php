@@ -65,7 +65,7 @@ class Profile extends Resource
                 ->rules('required', 'string'),
 
             // Doesnt exist yet.
-            BelongsToMany::make('Users', 'users', \App\Nova\User::class)
+            BelongsToMany::make('Users', 'users', \Laraning\NovaCheetah\Resources\User::class)
                          ->sortable(),
 
             BelongsToMany::make('Scopes', 'scopes', \Laraning\NovaSurveyor\Resources\Scope::class)

@@ -1,7 +1,7 @@
 <h3 class="flex items-center font-normal text-white mb-6 text-base no-underline">
     <svg class="sidebar-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
         <path fill="#B3C1D1"
-              d="M7 10V7a5 5 0 1 1 10 0v3h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-8c0-1.1.9-2 2-2h2zm2 0h6V7a3 3 0 0 0-6 0v3zm-4 2v8h14v-8H5zm7 2a1 1 0 0 1 1 1v2a1 1 0 0 1-2 0v-2a1 1 0 0 1 1-1z"/>
+              d="M19 11a7.5 7.5 0 0 1-3.5 5.94L10 20l-5.5-3.06A7.5 7.5 0 0 1 1 11V3c3.38 0 6.5-1.12 9-3 2.5 1.89 5.62 3 9 3v8zm-9 1.08l2.92 2.04-1.03-3.41 2.84-2.15-3.56-.08L10 5.12 8.83 8.48l-3.56.08L8.1 10.7l-1.03 3.4L10 12.09z"/>
     </svg>
     <span class="sidebar-label">
         Surveyor
@@ -10,6 +10,7 @@
 
 <ul class="list-reset mb-8">
 
+    @can('viewAny', app(\Laraning\Surveyor\Models\Profile::class))
     <li class="leading-wide mb-4 text-sm">
         <router-link :to="{
             name: 'index',
@@ -20,7 +21,9 @@
             Profiles
         </router-link>
     </li>
+    @endcan
 
+    @can('viewAny', app(\Laraning\Surveyor\Models\Policy::class))
     <li class="leading-wide mb-4 text-sm">
         <router-link :to="{
             name: 'index',
@@ -31,7 +34,9 @@
             Policies
         </router-link>
     </li>
+    @endcan
 
+    @can('viewAny', app(\Laraning\Surveyor\Models\Scope::class))
     <li class="leading-wide mb-4 text-sm">
         <router-link :to="{
             name: 'index',
@@ -42,5 +47,6 @@
             Scopes
         </router-link>
     </li>
+    @endcan
 
 </ul>
