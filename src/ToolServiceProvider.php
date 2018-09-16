@@ -35,7 +35,18 @@ class ToolServiceProvider extends ServiceProvider
             Scope::observe(ScopeNovaObserver::class);
             Policy::observe(PolicyNovaObserver::class);
         });
+
+        $this->registerPublishing();
     }
+
+    protected function registerPublishing()
+    {
+        $this->publishes([
+            __DIR__.'/../config/nova_surveyor.php' => config_path('nova_surveyor.php'),
+        ], 'nova-surveyor-config');
+    }
+
+
 
     /**
      * Register the tool's routes.
