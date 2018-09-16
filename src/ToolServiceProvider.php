@@ -46,8 +46,6 @@ class ToolServiceProvider extends ServiceProvider
         ], 'nova-surveyor-config');
     }
 
-
-
     /**
      * Register the tool's routes.
      *
