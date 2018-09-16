@@ -8,9 +8,9 @@
     "license": "MIT",
     "require": {
         "php": ">=7.1.0",
-        "laraning/boost": "^1.0",
+        "laraning/boost": "*",
         "laravel/nova": "*",
-        "laraning/surveyor": "^0.1"
+        "laraning/surveyor": "*"
     },
     "autoload": {
         "psr-4": {
