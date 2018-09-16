@@ -8,6 +8,7 @@
     "license": "MIT",
     "require": {
         "php": ">=7.1.0",
+        "laraning/boost": "^1.0",
         "laravel/nova": "*",
         "laraning/surveyor": "^0.1"
     },
