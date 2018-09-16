@@ -64,7 +64,7 @@ class Profile extends Resource
                 ->sortable()
                 ->rules('required', 'string'),
 
-            BelongsToMany::make('Users', 'users', \Laraning\NovaCheetah\Resources\User::class)
+            BelongsToMany::make('Users', 'users', config('nova_surveyor.user_resource'))
                          ->sortable(),
 
             BelongsToMany::make('Scopes', 'scopes', \Laraning\NovaSurveyor\Resources\Scope::class)
