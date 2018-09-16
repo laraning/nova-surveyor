@@ -10,7 +10,6 @@
 
 <ul class="list-reset mb-8">
 
-    @can('viewAny', app(\Laraning\Surveyor\Models\Profile::class))
     <li class="leading-wide mb-4 text-sm">
         <router-link :to="{
             name: 'index',
@@ -21,9 +20,7 @@
             Profiles
         </router-link>
     </li>
-    @endcan
 
-    @can('viewAny', app(\Laraning\Surveyor\Models\Policy::class))
     <li class="leading-wide mb-4 text-sm">
         <router-link :to="{
             name: 'index',
@@ -34,9 +31,7 @@
             Policies
         </router-link>
     </li>
-    @endcan
 
-    @can('viewAny', app(\Laraning\Surveyor\Models\Scope::class))
     <li class="leading-wide mb-4 text-sm">
         <router-link :to="{
             name: 'index',
@@ -47,6 +42,5 @@
             Scopes
         </router-link>
     </li>
-    @endcan
 
 </ul>
