@@ -12,7 +12,6 @@
         "laravel/nova": "*",
         "laraning/surveyor": "*"
     },
-
     "autoload": {
         "psr-4": {
             "Laraning\\NovaSurveyor\\": "src/"
