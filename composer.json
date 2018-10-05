@@ -26,6 +26,12 @@
     "config": {
         "sort-packages": true
     },
+    "authors": [
+        {
+            "name": "Laraning",
+            "email": "bruno.falcao@laraning.com"
+        }
+    ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
