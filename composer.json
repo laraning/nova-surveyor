@@ -8,8 +8,8 @@
     "license": "MIT",
     "require": {
         "php": ">=7.1.0",
-        "laraning/boost": "*",
-        "laraning/surveyor": "*"
+        "laraning/boost": "dev-master",
+        "laraning/surveyor": "dev-master"
     },
     "autoload": {
         "psr-4": {
